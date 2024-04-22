@@ -4,9 +4,8 @@
   "version": "1.0.0",
   "type": "module",
   "main": "dist/bundle.js",
-  "files": [
-    "dist"
-  ],
+  "types": "dist/bundle.d.ts",
+  "files": ["dist"],
   "scripts": {
     "build": "tsc -b && tsx bundle.ts",
     "dev": "run-p watch:tsc watch:esbuild:sync",
