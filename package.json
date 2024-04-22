@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "type": "module",
   "main": "dist/bundle.js",
-  "types": "dist/bundle.d.ts",
   "files": ["dist"],
   "scripts": {
     "build": "tsc -b && tsx bundle.ts",

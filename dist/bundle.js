@@ -2834,8 +2834,8 @@ var require_URL = __commonJS({
     var utils = require_utils();
     var Impl = require_URL_impl();
     var impl = utils.implSymbol;
-    function URL2(url) {
-      if (!this || this[impl] || !(this instanceof URL2)) {
+    function URL3(url) {
+      if (!this || this[impl] || !(this instanceof URL3)) {
         throw new TypeError("Failed to construct 'URL': Please use the 'new' operator, this DOM object constructor cannot be called as a function.");
       }
       if (arguments.length < 1) {
@@ -2851,7 +2851,7 @@ var require_URL = __commonJS({
       }
       module.exports.setup(this, args);
     }
-    URL2.prototype.toJSON = function toJSON() {
+    URL3.prototype.toJSON = function toJSON() {
       if (!this || !module.exports.is(this)) {
         throw new TypeError("Illegal invocation");
       }
@@ -2861,7 +2861,7 @@ var require_URL = __commonJS({
       }
       return this[impl].toJSON.apply(this[impl], args);
     };
-    Object.defineProperty(URL2.prototype, "href", {
+    Object.defineProperty(URL3.prototype, "href", {
       get() {
         return this[impl].href;
       },
@@ -2872,20 +2872,20 @@ var require_URL = __commonJS({
       enumerable: true,
       configurable: true
     });
-    URL2.prototype.toString = function() {
+    URL3.prototype.toString = function() {
       if (!this || !module.exports.is(this)) {
         throw new TypeError("Illegal invocation");
       }
       return this.href;
     };
-    Object.defineProperty(URL2.prototype, "origin", {
+    Object.defineProperty(URL3.prototype, "origin", {
       get() {
         return this[impl].origin;
       },
       enumerable: true,
       configurable: true
     });
-    Object.defineProperty(URL2.prototype, "protocol", {
+    Object.defineProperty(URL3.prototype, "protocol", {
       get() {
         return this[impl].protocol;
       },
@@ -2896,7 +2896,7 @@ var require_URL = __commonJS({
       enumerable: true,
       configurable: true
     });
-    Object.defineProperty(URL2.prototype, "username", {
+    Object.defineProperty(URL3.prototype, "username", {
       get() {
         return this[impl].username;
       },
@@ -2907,7 +2907,7 @@ var require_URL = __commonJS({
       enumerable: true,
       configurable: true
     });
-    Object.defineProperty(URL2.prototype, "password", {
+    Object.defineProperty(URL3.prototype, "password", {
       get() {
         return this[impl].password;
       },
@@ -2918,7 +2918,7 @@ var require_URL = __commonJS({
       enumerable: true,
       configurable: true
     });
-    Object.defineProperty(URL2.prototype, "host", {
+    Object.defineProperty(URL3.prototype, "host", {
       get() {
         return this[impl].host;
       },
@@ -2929,7 +2929,7 @@ var require_URL = __commonJS({
       enumerable: true,
       configurable: true
     });
-    Object.defineProperty(URL2.prototype, "hostname", {
+    Object.defineProperty(URL3.prototype, "hostname", {
       get() {
         return this[impl].hostname;
       },
@@ -2940,7 +2940,7 @@ var require_URL = __commonJS({
       enumerable: true,
       configurable: true
     });
-    Object.defineProperty(URL2.prototype, "port", {
+    Object.defineProperty(URL3.prototype, "port", {
       get() {
         return this[impl].port;
       },
@@ -2951,7 +2951,7 @@ var require_URL = __commonJS({
       enumerable: true,
       configurable: true
     });
-    Object.defineProperty(URL2.prototype, "pathname", {
+    Object.defineProperty(URL3.prototype, "pathname", {
       get() {
         return this[impl].pathname;
       },
@@ -2962,7 +2962,7 @@ var require_URL = __commonJS({
       enumerable: true,
       configurable: true
     });
-    Object.defineProperty(URL2.prototype, "search", {
+    Object.defineProperty(URL3.prototype, "search", {
       get() {
         return this[impl].search;
       },
@@ -2973,7 +2973,7 @@ var require_URL = __commonJS({
       enumerable: true,
       configurable: true
     });
-    Object.defineProperty(URL2.prototype, "hash", {
+    Object.defineProperty(URL3.prototype, "hash", {
       get() {
         return this[impl].hash;
       },
@@ -2989,7 +2989,7 @@ var require_URL = __commonJS({
         return !!obj && obj[impl] instanceof Impl.implementation;
       },
       create(constructorArgs, privateData) {
-        let obj = Object.create(URL2.prototype);
+        let obj = Object.create(URL3.prototype);
         this.setup(obj, constructorArgs, privateData);
         return obj;
       },
@@ -3000,10 +3000,10 @@ var require_URL = __commonJS({
         obj[impl] = new Impl.implementation(constructorArgs, privateData);
         obj[impl][utils.wrapperSymbol] = obj;
       },
-      interface: URL2,
+      interface: URL3,
       expose: {
-        Window: { URL: URL2 },
-        Worker: { URL: URL2 }
+        Window: { URL: URL3 },
+        Worker: { URL: URL3 }
       }
     };
   }
@@ -6690,8 +6690,8 @@ var require_encoding = __commonJS({
   "node_modules/encoding/lib/encoding.js"(exports, module) {
     "use strict";
     var iconvLite = require_lib2();
-    module.exports.convert = convert;
-    function convert(str, to, from) {
+    module.exports.convert = convert2;
+    function convert2(str, to, from) {
       from = checkEncoding(from || "UTF-8");
       to = checkEncoding(to || "UTF-8");
       str = str || "";
@@ -6730,1253 +6730,6 @@ var require_encoding = __commonJS({
     function checkEncoding(name) {
       return (name || "").toString().trim().replace(/^latin[\-_]?(\d+)$/i, "ISO-8859-$1").replace(/^win(?:dows)?[\-_]?(\d+)$/i, "WINDOWS-$1").replace(/^utf[\-_]?(\d+)$/i, "UTF-$1").replace(/^ks_c_5601\-1987$/i, "CP949").replace(/^us[\-_]?ascii$/i, "ASCII").toUpperCase();
     }
-  }
-});
-
-// node_modules/node-fetch/lib/index.js
-var require_lib3 = __commonJS({
-  "node_modules/node-fetch/lib/index.js"(exports, module) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    function _interopDefault(ex) {
-      return ex && typeof ex === "object" && "default" in ex ? ex["default"] : ex;
-    }
-    var Stream2 = _interopDefault(__require("stream"));
-    var http = _interopDefault(__require("http"));
-    var Url = _interopDefault(__require("url"));
-    var whatwgUrl = _interopDefault(require_public_api());
-    var https = _interopDefault(__require("https"));
-    var zlib = _interopDefault(__require("zlib"));
-    var Readable2 = Stream2.Readable;
-    var BUFFER = Symbol("buffer");
-    var TYPE = Symbol("type");
-    var Blob2 = class _Blob {
-      constructor() {
-        this[TYPE] = "";
-        const blobParts = arguments[0];
-        const options = arguments[1];
-        const buffers = [];
-        let size = 0;
-        if (blobParts) {
-          const a2 = blobParts;
-          const length = Number(a2.length);
-          for (let i2 = 0; i2 < length; i2++) {
-            const element = a2[i2];
-            let buffer;
-            if (element instanceof Buffer) {
-              buffer = element;
-            } else if (ArrayBuffer.isView(element)) {
-              buffer = Buffer.from(element.buffer, element.byteOffset, element.byteLength);
-            } else if (element instanceof ArrayBuffer) {
-              buffer = Buffer.from(element);
-            } else if (element instanceof _Blob) {
-              buffer = element[BUFFER];
-            } else {
-              buffer = Buffer.from(typeof element === "string" ? element : String(element));
-            }
-            size += buffer.length;
-            buffers.push(buffer);
-          }
-        }
-        this[BUFFER] = Buffer.concat(buffers);
-        let type = options && options.type !== void 0 && String(options.type).toLowerCase();
-        if (type && !/[^\u0020-\u007E]/.test(type)) {
-          this[TYPE] = type;
-        }
-      }
-      get size() {
-        return this[BUFFER].length;
-      }
-      get type() {
-        return this[TYPE];
-      }
-      text() {
-        return Promise.resolve(this[BUFFER].toString());
-      }
-      arrayBuffer() {
-        const buf = this[BUFFER];
-        const ab = buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
-        return Promise.resolve(ab);
-      }
-      stream() {
-        const readable = new Readable2();
-        readable._read = function() {
-        };
-        readable.push(this[BUFFER]);
-        readable.push(null);
-        return readable;
-      }
-      toString() {
-        return "[object Blob]";
-      }
-      slice() {
-        const size = this.size;
-        const start = arguments[0];
-        const end = arguments[1];
-        let relativeStart, relativeEnd;
-        if (start === void 0) {
-          relativeStart = 0;
-        } else if (start < 0) {
-          relativeStart = Math.max(size + start, 0);
-        } else {
-          relativeStart = Math.min(start, size);
-        }
-        if (end === void 0) {
-          relativeEnd = size;
-        } else if (end < 0) {
-          relativeEnd = Math.max(size + end, 0);
-        } else {
-          relativeEnd = Math.min(end, size);
-        }
-        const span = Math.max(relativeEnd - relativeStart, 0);
-        const buffer = this[BUFFER];
-        const slicedBuffer = buffer.slice(relativeStart, relativeStart + span);
-        const blob = new _Blob([], { type: arguments[2] });
-        blob[BUFFER] = slicedBuffer;
-        return blob;
-      }
-    };
-    Object.defineProperties(Blob2.prototype, {
-      size: { enumerable: true },
-      type: { enumerable: true },
-      slice: { enumerable: true }
-    });
-    Object.defineProperty(Blob2.prototype, Symbol.toStringTag, {
-      value: "Blob",
-      writable: false,
-      enumerable: false,
-      configurable: true
-    });
-    function FetchError(message, type, systemError) {
-      Error.call(this, message);
-      this.message = message;
-      this.type = type;
-      if (systemError) {
-        this.code = this.errno = systemError.code;
-      }
-      Error.captureStackTrace(this, this.constructor);
-    }
-    FetchError.prototype = Object.create(Error.prototype);
-    FetchError.prototype.constructor = FetchError;
-    FetchError.prototype.name = "FetchError";
-    var convert;
-    try {
-      convert = require_encoding().convert;
-    } catch (e2) {
-    }
-    var INTERNALS = Symbol("Body internals");
-    var PassThrough = Stream2.PassThrough;
-    function Body(body) {
-      var _this = this;
-      var _ref = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {}, _ref$size = _ref.size;
-      let size = _ref$size === void 0 ? 0 : _ref$size;
-      var _ref$timeout = _ref.timeout;
-      let timeout = _ref$timeout === void 0 ? 0 : _ref$timeout;
-      if (body == null) {
-        body = null;
-      } else if (isURLSearchParams(body)) {
-        body = Buffer.from(body.toString());
-      } else if (isBlob2(body))
-        ;
-      else if (Buffer.isBuffer(body))
-        ;
-      else if (Object.prototype.toString.call(body) === "[object ArrayBuffer]") {
-        body = Buffer.from(body);
-      } else if (ArrayBuffer.isView(body)) {
-        body = Buffer.from(body.buffer, body.byteOffset, body.byteLength);
-      } else if (body instanceof Stream2)
-        ;
-      else {
-        body = Buffer.from(String(body));
-      }
-      this[INTERNALS] = {
-        body,
-        disturbed: false,
-        error: null
-      };
-      this.size = size;
-      this.timeout = timeout;
-      if (body instanceof Stream2) {
-        body.on("error", function(err) {
-          const error = err.name === "AbortError" ? err : new FetchError(`Invalid response body while trying to fetch ${_this.url}: ${err.message}`, "system", err);
-          _this[INTERNALS].error = error;
-        });
-      }
-    }
-    Body.prototype = {
-      get body() {
-        return this[INTERNALS].body;
-      },
-      get bodyUsed() {
-        return this[INTERNALS].disturbed;
-      },
-      /**
-       * Decode response as ArrayBuffer
-       *
-       * @return  Promise
-       */
-      arrayBuffer() {
-        return consumeBody.call(this).then(function(buf) {
-          return buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
-        });
-      },
-      /**
-       * Return raw response as Blob
-       *
-       * @return Promise
-       */
-      blob() {
-        let ct2 = this.headers && this.headers.get("content-type") || "";
-        return consumeBody.call(this).then(function(buf) {
-          return Object.assign(
-            // Prevent copying
-            new Blob2([], {
-              type: ct2.toLowerCase()
-            }),
-            {
-              [BUFFER]: buf
-            }
-          );
-        });
-      },
-      /**
-       * Decode response as json
-       *
-       * @return  Promise
-       */
-      json() {
-        var _this2 = this;
-        return consumeBody.call(this).then(function(buffer) {
-          try {
-            return JSON.parse(buffer.toString());
-          } catch (err) {
-            return Body.Promise.reject(new FetchError(`invalid json response body at ${_this2.url} reason: ${err.message}`, "invalid-json"));
-          }
-        });
-      },
-      /**
-       * Decode response as text
-       *
-       * @return  Promise
-       */
-      text() {
-        return consumeBody.call(this).then(function(buffer) {
-          return buffer.toString();
-        });
-      },
-      /**
-       * Decode response as buffer (non-spec api)
-       *
-       * @return  Promise
-       */
-      buffer() {
-        return consumeBody.call(this);
-      },
-      /**
-       * Decode response as text, while automatically detecting the encoding and
-       * trying to decode to UTF-8 (non-spec api)
-       *
-       * @return  Promise
-       */
-      textConverted() {
-        var _this3 = this;
-        return consumeBody.call(this).then(function(buffer) {
-          return convertBody(buffer, _this3.headers);
-        });
-      }
-    };
-    Object.defineProperties(Body.prototype, {
-      body: { enumerable: true },
-      bodyUsed: { enumerable: true },
-      arrayBuffer: { enumerable: true },
-      blob: { enumerable: true },
-      json: { enumerable: true },
-      text: { enumerable: true }
-    });
-    Body.mixIn = function(proto) {
-      for (const name of Object.getOwnPropertyNames(Body.prototype)) {
-        if (!(name in proto)) {
-          const desc = Object.getOwnPropertyDescriptor(Body.prototype, name);
-          Object.defineProperty(proto, name, desc);
-        }
-      }
-    };
-    function consumeBody() {
-      var _this4 = this;
-      if (this[INTERNALS].disturbed) {
-        return Body.Promise.reject(new TypeError(`body used already for: ${this.url}`));
-      }
-      this[INTERNALS].disturbed = true;
-      if (this[INTERNALS].error) {
-        return Body.Promise.reject(this[INTERNALS].error);
-      }
-      let body = this.body;
-      if (body === null) {
-        return Body.Promise.resolve(Buffer.alloc(0));
-      }
-      if (isBlob2(body)) {
-        body = body.stream();
-      }
-      if (Buffer.isBuffer(body)) {
-        return Body.Promise.resolve(body);
-      }
-      if (!(body instanceof Stream2)) {
-        return Body.Promise.resolve(Buffer.alloc(0));
-      }
-      let accum = [];
-      let accumBytes = 0;
-      let abort = false;
-      return new Body.Promise(function(resolve, reject) {
-        let resTimeout;
-        if (_this4.timeout) {
-          resTimeout = setTimeout(function() {
-            abort = true;
-            reject(new FetchError(`Response timeout while trying to fetch ${_this4.url} (over ${_this4.timeout}ms)`, "body-timeout"));
-          }, _this4.timeout);
-        }
-        body.on("error", function(err) {
-          if (err.name === "AbortError") {
-            abort = true;
-            reject(err);
-          } else {
-            reject(new FetchError(`Invalid response body while trying to fetch ${_this4.url}: ${err.message}`, "system", err));
-          }
-        });
-        body.on("data", function(chunk) {
-          if (abort || chunk === null) {
-            return;
-          }
-          if (_this4.size && accumBytes + chunk.length > _this4.size) {
-            abort = true;
-            reject(new FetchError(`content size at ${_this4.url} over limit: ${_this4.size}`, "max-size"));
-            return;
-          }
-          accumBytes += chunk.length;
-          accum.push(chunk);
-        });
-        body.on("end", function() {
-          if (abort) {
-            return;
-          }
-          clearTimeout(resTimeout);
-          try {
-            resolve(Buffer.concat(accum, accumBytes));
-          } catch (err) {
-            reject(new FetchError(`Could not create Buffer from response body for ${_this4.url}: ${err.message}`, "system", err));
-          }
-        });
-      });
-    }
-    function convertBody(buffer, headers) {
-      if (typeof convert !== "function") {
-        throw new Error("The package `encoding` must be installed to use the textConverted() function");
-      }
-      const ct2 = headers.get("content-type");
-      let charset = "utf-8";
-      let res, str;
-      if (ct2) {
-        res = /charset=([^;]*)/i.exec(ct2);
-      }
-      str = buffer.slice(0, 1024).toString();
-      if (!res && str) {
-        res = /<meta.+?charset=(['"])(.+?)\1/i.exec(str);
-      }
-      if (!res && str) {
-        res = /<meta[\s]+?http-equiv=(['"])content-type\1[\s]+?content=(['"])(.+?)\2/i.exec(str);
-        if (!res) {
-          res = /<meta[\s]+?content=(['"])(.+?)\1[\s]+?http-equiv=(['"])content-type\3/i.exec(str);
-          if (res) {
-            res.pop();
-          }
-        }
-        if (res) {
-          res = /charset=(.*)/i.exec(res.pop());
-        }
-      }
-      if (!res && str) {
-        res = /<\?xml.+?encoding=(['"])(.+?)\1/i.exec(str);
-      }
-      if (res) {
-        charset = res.pop();
-        if (charset === "gb2312" || charset === "gbk") {
-          charset = "gb18030";
-        }
-      }
-      return convert(buffer, "UTF-8", charset).toString();
-    }
-    function isURLSearchParams(obj) {
-      if (typeof obj !== "object" || typeof obj.append !== "function" || typeof obj.delete !== "function" || typeof obj.get !== "function" || typeof obj.getAll !== "function" || typeof obj.has !== "function" || typeof obj.set !== "function") {
-        return false;
-      }
-      return obj.constructor.name === "URLSearchParams" || Object.prototype.toString.call(obj) === "[object URLSearchParams]" || typeof obj.sort === "function";
-    }
-    function isBlob2(obj) {
-      return typeof obj === "object" && typeof obj.arrayBuffer === "function" && typeof obj.type === "string" && typeof obj.stream === "function" && typeof obj.constructor === "function" && typeof obj.constructor.name === "string" && /^(Blob|File)$/.test(obj.constructor.name) && /^(Blob|File)$/.test(obj[Symbol.toStringTag]);
-    }
-    function clone(instance) {
-      let p1, p2;
-      let body = instance.body;
-      if (instance.bodyUsed) {
-        throw new Error("cannot clone body after it is used");
-      }
-      if (body instanceof Stream2 && typeof body.getBoundary !== "function") {
-        p1 = new PassThrough();
-        p2 = new PassThrough();
-        body.pipe(p1);
-        body.pipe(p2);
-        instance[INTERNALS].body = p1;
-        body = p2;
-      }
-      return body;
-    }
-    function extractContentType(body) {
-      if (body === null) {
-        return null;
-      } else if (typeof body === "string") {
-        return "text/plain;charset=UTF-8";
-      } else if (isURLSearchParams(body)) {
-        return "application/x-www-form-urlencoded;charset=UTF-8";
-      } else if (isBlob2(body)) {
-        return body.type || null;
-      } else if (Buffer.isBuffer(body)) {
-        return null;
-      } else if (Object.prototype.toString.call(body) === "[object ArrayBuffer]") {
-        return null;
-      } else if (ArrayBuffer.isView(body)) {
-        return null;
-      } else if (typeof body.getBoundary === "function") {
-        return `multipart/form-data;boundary=${body.getBoundary()}`;
-      } else if (body instanceof Stream2) {
-        return null;
-      } else {
-        return "text/plain;charset=UTF-8";
-      }
-    }
-    function getTotalBytes(instance) {
-      const body = instance.body;
-      if (body === null) {
-        return 0;
-      } else if (isBlob2(body)) {
-        return body.size;
-      } else if (Buffer.isBuffer(body)) {
-        return body.length;
-      } else if (body && typeof body.getLengthSync === "function") {
-        if (body._lengthRetrievers && body._lengthRetrievers.length == 0 || // 1.x
-        body.hasKnownLength && body.hasKnownLength()) {
-          return body.getLengthSync();
-        }
-        return null;
-      } else {
-        return null;
-      }
-    }
-    function writeToStream(dest, instance) {
-      const body = instance.body;
-      if (body === null) {
-        dest.end();
-      } else if (isBlob2(body)) {
-        body.stream().pipe(dest);
-      } else if (Buffer.isBuffer(body)) {
-        dest.write(body);
-        dest.end();
-      } else {
-        body.pipe(dest);
-      }
-    }
-    Body.Promise = global.Promise;
-    var invalidTokenRegex = /[^\^_`a-zA-Z\-0-9!#$%&'*+.|~]/;
-    var invalidHeaderCharRegex = /[^\t\x20-\x7e\x80-\xff]/;
-    function validateName(name) {
-      name = `${name}`;
-      if (invalidTokenRegex.test(name) || name === "") {
-        throw new TypeError(`${name} is not a legal HTTP header name`);
-      }
-    }
-    function validateValue(value) {
-      value = `${value}`;
-      if (invalidHeaderCharRegex.test(value)) {
-        throw new TypeError(`${value} is not a legal HTTP header value`);
-      }
-    }
-    function find(map, name) {
-      name = name.toLowerCase();
-      for (const key in map) {
-        if (key.toLowerCase() === name) {
-          return key;
-        }
-      }
-      return void 0;
-    }
-    var MAP = Symbol("map");
-    var Headers2 = class _Headers {
-      /**
-       * Headers class
-       *
-       * @param   Object  headers  Response headers
-       * @return  Void
-       */
-      constructor() {
-        let init = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : void 0;
-        this[MAP] = /* @__PURE__ */ Object.create(null);
-        if (init instanceof _Headers) {
-          const rawHeaders = init.raw();
-          const headerNames = Object.keys(rawHeaders);
-          for (const headerName of headerNames) {
-            for (const value of rawHeaders[headerName]) {
-              this.append(headerName, value);
-            }
-          }
-          return;
-        }
-        if (init == null)
-          ;
-        else if (typeof init === "object") {
-          const method = init[Symbol.iterator];
-          if (method != null) {
-            if (typeof method !== "function") {
-              throw new TypeError("Header pairs must be iterable");
-            }
-            const pairs = [];
-            for (const pair of init) {
-              if (typeof pair !== "object" || typeof pair[Symbol.iterator] !== "function") {
-                throw new TypeError("Each header pair must be iterable");
-              }
-              pairs.push(Array.from(pair));
-            }
-            for (const pair of pairs) {
-              if (pair.length !== 2) {
-                throw new TypeError("Each header pair must be a name/value tuple");
-              }
-              this.append(pair[0], pair[1]);
-            }
-          } else {
-            for (const key of Object.keys(init)) {
-              const value = init[key];
-              this.append(key, value);
-            }
-          }
-        } else {
-          throw new TypeError("Provided initializer must be an object");
-        }
-      }
-      /**
-       * Return combined header value given name
-       *
-       * @param   String  name  Header name
-       * @return  Mixed
-       */
-      get(name) {
-        name = `${name}`;
-        validateName(name);
-        const key = find(this[MAP], name);
-        if (key === void 0) {
-          return null;
-        }
-        return this[MAP][key].join(", ");
-      }
-      /**
-       * Iterate over all headers
-       *
-       * @param   Function  callback  Executed for each item with parameters (value, name, thisArg)
-       * @param   Boolean   thisArg   `this` context for callback function
-       * @return  Void
-       */
-      forEach(callback) {
-        let thisArg = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : void 0;
-        let pairs = getHeaders(this);
-        let i2 = 0;
-        while (i2 < pairs.length) {
-          var _pairs$i = pairs[i2];
-          const name = _pairs$i[0], value = _pairs$i[1];
-          callback.call(thisArg, value, name, this);
-          pairs = getHeaders(this);
-          i2++;
-        }
-      }
-      /**
-       * Overwrite header values given name
-       *
-       * @param   String  name   Header name
-       * @param   String  value  Header value
-       * @return  Void
-       */
-      set(name, value) {
-        name = `${name}`;
-        value = `${value}`;
-        validateName(name);
-        validateValue(value);
-        const key = find(this[MAP], name);
-        this[MAP][key !== void 0 ? key : name] = [value];
-      }
-      /**
-       * Append a value onto existing header
-       *
-       * @param   String  name   Header name
-       * @param   String  value  Header value
-       * @return  Void
-       */
-      append(name, value) {
-        name = `${name}`;
-        value = `${value}`;
-        validateName(name);
-        validateValue(value);
-        const key = find(this[MAP], name);
-        if (key !== void 0) {
-          this[MAP][key].push(value);
-        } else {
-          this[MAP][name] = [value];
-        }
-      }
-      /**
-       * Check for header name existence
-       *
-       * @param   String   name  Header name
-       * @return  Boolean
-       */
-      has(name) {
-        name = `${name}`;
-        validateName(name);
-        return find(this[MAP], name) !== void 0;
-      }
-      /**
-       * Delete all header values given name
-       *
-       * @param   String  name  Header name
-       * @return  Void
-       */
-      delete(name) {
-        name = `${name}`;
-        validateName(name);
-        const key = find(this[MAP], name);
-        if (key !== void 0) {
-          delete this[MAP][key];
-        }
-      }
-      /**
-       * Return raw headers (non-spec api)
-       *
-       * @return  Object
-       */
-      raw() {
-        return this[MAP];
-      }
-      /**
-       * Get an iterator on keys.
-       *
-       * @return  Iterator
-       */
-      keys() {
-        return createHeadersIterator(this, "key");
-      }
-      /**
-       * Get an iterator on values.
-       *
-       * @return  Iterator
-       */
-      values() {
-        return createHeadersIterator(this, "value");
-      }
-      /**
-       * Get an iterator on entries.
-       *
-       * This is the default iterator of the Headers object.
-       *
-       * @return  Iterator
-       */
-      [Symbol.iterator]() {
-        return createHeadersIterator(this, "key+value");
-      }
-    };
-    Headers2.prototype.entries = Headers2.prototype[Symbol.iterator];
-    Object.defineProperty(Headers2.prototype, Symbol.toStringTag, {
-      value: "Headers",
-      writable: false,
-      enumerable: false,
-      configurable: true
-    });
-    Object.defineProperties(Headers2.prototype, {
-      get: { enumerable: true },
-      forEach: { enumerable: true },
-      set: { enumerable: true },
-      append: { enumerable: true },
-      has: { enumerable: true },
-      delete: { enumerable: true },
-      keys: { enumerable: true },
-      values: { enumerable: true },
-      entries: { enumerable: true }
-    });
-    function getHeaders(headers) {
-      let kind = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "key+value";
-      const keys = Object.keys(headers[MAP]).sort();
-      return keys.map(kind === "key" ? function(k2) {
-        return k2.toLowerCase();
-      } : kind === "value" ? function(k2) {
-        return headers[MAP][k2].join(", ");
-      } : function(k2) {
-        return [k2.toLowerCase(), headers[MAP][k2].join(", ")];
-      });
-    }
-    var INTERNAL = Symbol("internal");
-    function createHeadersIterator(target, kind) {
-      const iterator = Object.create(HeadersIteratorPrototype);
-      iterator[INTERNAL] = {
-        target,
-        kind,
-        index: 0
-      };
-      return iterator;
-    }
-    var HeadersIteratorPrototype = Object.setPrototypeOf({
-      next() {
-        if (!this || Object.getPrototypeOf(this) !== HeadersIteratorPrototype) {
-          throw new TypeError("Value of `this` is not a HeadersIterator");
-        }
-        var _INTERNAL = this[INTERNAL];
-        const target = _INTERNAL.target, kind = _INTERNAL.kind, index = _INTERNAL.index;
-        const values = getHeaders(target, kind);
-        const len = values.length;
-        if (index >= len) {
-          return {
-            value: void 0,
-            done: true
-          };
-        }
-        this[INTERNAL].index = index + 1;
-        return {
-          value: values[index],
-          done: false
-        };
-      }
-    }, Object.getPrototypeOf(Object.getPrototypeOf([][Symbol.iterator]())));
-    Object.defineProperty(HeadersIteratorPrototype, Symbol.toStringTag, {
-      value: "HeadersIterator",
-      writable: false,
-      enumerable: false,
-      configurable: true
-    });
-    function exportNodeCompatibleHeaders(headers) {
-      const obj = Object.assign({ __proto__: null }, headers[MAP]);
-      const hostHeaderKey = find(headers[MAP], "Host");
-      if (hostHeaderKey !== void 0) {
-        obj[hostHeaderKey] = obj[hostHeaderKey][0];
-      }
-      return obj;
-    }
-    function createHeadersLenient(obj) {
-      const headers = new Headers2();
-      for (const name of Object.keys(obj)) {
-        if (invalidTokenRegex.test(name)) {
-          continue;
-        }
-        if (Array.isArray(obj[name])) {
-          for (const val of obj[name]) {
-            if (invalidHeaderCharRegex.test(val)) {
-              continue;
-            }
-            if (headers[MAP][name] === void 0) {
-              headers[MAP][name] = [val];
-            } else {
-              headers[MAP][name].push(val);
-            }
-          }
-        } else if (!invalidHeaderCharRegex.test(obj[name])) {
-          headers[MAP][name] = [obj[name]];
-        }
-      }
-      return headers;
-    }
-    var INTERNALS$1 = Symbol("Response internals");
-    var STATUS_CODES = http.STATUS_CODES;
-    var Response2 = class _Response {
-      constructor() {
-        let body = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : null;
-        let opts = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
-        Body.call(this, body, opts);
-        const status = opts.status || 200;
-        const headers = new Headers2(opts.headers);
-        if (body != null && !headers.has("Content-Type")) {
-          const contentType = extractContentType(body);
-          if (contentType) {
-            headers.append("Content-Type", contentType);
-          }
-        }
-        this[INTERNALS$1] = {
-          url: opts.url,
-          status,
-          statusText: opts.statusText || STATUS_CODES[status],
-          headers,
-          counter: opts.counter
-        };
-      }
-      get url() {
-        return this[INTERNALS$1].url || "";
-      }
-      get status() {
-        return this[INTERNALS$1].status;
-      }
-      /**
-       * Convenience property representing if the request ended normally
-       */
-      get ok() {
-        return this[INTERNALS$1].status >= 200 && this[INTERNALS$1].status < 300;
-      }
-      get redirected() {
-        return this[INTERNALS$1].counter > 0;
-      }
-      get statusText() {
-        return this[INTERNALS$1].statusText;
-      }
-      get headers() {
-        return this[INTERNALS$1].headers;
-      }
-      /**
-       * Clone this response
-       *
-       * @return  Response
-       */
-      clone() {
-        return new _Response(clone(this), {
-          url: this.url,
-          status: this.status,
-          statusText: this.statusText,
-          headers: this.headers,
-          ok: this.ok,
-          redirected: this.redirected
-        });
-      }
-    };
-    Body.mixIn(Response2.prototype);
-    Object.defineProperties(Response2.prototype, {
-      url: { enumerable: true },
-      status: { enumerable: true },
-      ok: { enumerable: true },
-      redirected: { enumerable: true },
-      statusText: { enumerable: true },
-      headers: { enumerable: true },
-      clone: { enumerable: true }
-    });
-    Object.defineProperty(Response2.prototype, Symbol.toStringTag, {
-      value: "Response",
-      writable: false,
-      enumerable: false,
-      configurable: true
-    });
-    var INTERNALS$2 = Symbol("Request internals");
-    var URL2 = Url.URL || whatwgUrl.URL;
-    var parse_url = Url.parse;
-    var format_url = Url.format;
-    function parseURL(urlStr) {
-      if (/^[a-zA-Z][a-zA-Z\d+\-.]*:/.exec(urlStr)) {
-        urlStr = new URL2(urlStr).toString();
-      }
-      return parse_url(urlStr);
-    }
-    var streamDestructionSupported = "destroy" in Stream2.Readable.prototype;
-    function isRequest(input) {
-      return typeof input === "object" && typeof input[INTERNALS$2] === "object";
-    }
-    function isAbortSignal(signal) {
-      const proto = signal && typeof signal === "object" && Object.getPrototypeOf(signal);
-      return !!(proto && proto.constructor.name === "AbortSignal");
-    }
-    var Request3 = class _Request {
-      constructor(input) {
-        let init = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
-        let parsedURL;
-        if (!isRequest(input)) {
-          if (input && input.href) {
-            parsedURL = parseURL(input.href);
-          } else {
-            parsedURL = parseURL(`${input}`);
-          }
-          input = {};
-        } else {
-          parsedURL = parseURL(input.url);
-        }
-        let method = init.method || input.method || "GET";
-        method = method.toUpperCase();
-        if ((init.body != null || isRequest(input) && input.body !== null) && (method === "GET" || method === "HEAD")) {
-          throw new TypeError("Request with GET/HEAD method cannot have body");
-        }
-        let inputBody = init.body != null ? init.body : isRequest(input) && input.body !== null ? clone(input) : null;
-        Body.call(this, inputBody, {
-          timeout: init.timeout || input.timeout || 0,
-          size: init.size || input.size || 0
-        });
-        const headers = new Headers2(init.headers || input.headers || {});
-        if (inputBody != null && !headers.has("Content-Type")) {
-          const contentType = extractContentType(inputBody);
-          if (contentType) {
-            headers.append("Content-Type", contentType);
-          }
-        }
-        let signal = isRequest(input) ? input.signal : null;
-        if ("signal" in init)
-          signal = init.signal;
-        if (signal != null && !isAbortSignal(signal)) {
-          throw new TypeError("Expected signal to be an instanceof AbortSignal");
-        }
-        this[INTERNALS$2] = {
-          method,
-          redirect: init.redirect || input.redirect || "follow",
-          headers,
-          parsedURL,
-          signal
-        };
-        this.follow = init.follow !== void 0 ? init.follow : input.follow !== void 0 ? input.follow : 20;
-        this.compress = init.compress !== void 0 ? init.compress : input.compress !== void 0 ? input.compress : true;
-        this.counter = init.counter || input.counter || 0;
-        this.agent = init.agent || input.agent;
-      }
-      get method() {
-        return this[INTERNALS$2].method;
-      }
-      get url() {
-        return format_url(this[INTERNALS$2].parsedURL);
-      }
-      get headers() {
-        return this[INTERNALS$2].headers;
-      }
-      get redirect() {
-        return this[INTERNALS$2].redirect;
-      }
-      get signal() {
-        return this[INTERNALS$2].signal;
-      }
-      /**
-       * Clone this request
-       *
-       * @return  Request
-       */
-      clone() {
-        return new _Request(this);
-      }
-    };
-    Body.mixIn(Request3.prototype);
-    Object.defineProperty(Request3.prototype, Symbol.toStringTag, {
-      value: "Request",
-      writable: false,
-      enumerable: false,
-      configurable: true
-    });
-    Object.defineProperties(Request3.prototype, {
-      method: { enumerable: true },
-      url: { enumerable: true },
-      headers: { enumerable: true },
-      redirect: { enumerable: true },
-      clone: { enumerable: true },
-      signal: { enumerable: true }
-    });
-    function getNodeRequestOptions(request) {
-      const parsedURL = request[INTERNALS$2].parsedURL;
-      const headers = new Headers2(request[INTERNALS$2].headers);
-      if (!headers.has("Accept")) {
-        headers.set("Accept", "*/*");
-      }
-      if (!parsedURL.protocol || !parsedURL.hostname) {
-        throw new TypeError("Only absolute URLs are supported");
-      }
-      if (!/^https?:$/.test(parsedURL.protocol)) {
-        throw new TypeError("Only HTTP(S) protocols are supported");
-      }
-      if (request.signal && request.body instanceof Stream2.Readable && !streamDestructionSupported) {
-        throw new Error("Cancellation of streamed requests with AbortSignal is not supported in node < 8");
-      }
-      let contentLengthValue = null;
-      if (request.body == null && /^(POST|PUT)$/i.test(request.method)) {
-        contentLengthValue = "0";
-      }
-      if (request.body != null) {
-        const totalBytes = getTotalBytes(request);
-        if (typeof totalBytes === "number") {
-          contentLengthValue = String(totalBytes);
-        }
-      }
-      if (contentLengthValue) {
-        headers.set("Content-Length", contentLengthValue);
-      }
-      if (!headers.has("User-Agent")) {
-        headers.set("User-Agent", "node-fetch/1.0 (+https://github.com/bitinn/node-fetch)");
-      }
-      if (request.compress && !headers.has("Accept-Encoding")) {
-        headers.set("Accept-Encoding", "gzip,deflate");
-      }
-      let agent = request.agent;
-      if (typeof agent === "function") {
-        agent = agent(parsedURL);
-      }
-      return Object.assign({}, parsedURL, {
-        method: request.method,
-        headers: exportNodeCompatibleHeaders(headers),
-        agent
-      });
-    }
-    function AbortError(message) {
-      Error.call(this, message);
-      this.type = "aborted";
-      this.message = message;
-      Error.captureStackTrace(this, this.constructor);
-    }
-    AbortError.prototype = Object.create(Error.prototype);
-    AbortError.prototype.constructor = AbortError;
-    AbortError.prototype.name = "AbortError";
-    var URL$1 = Url.URL || whatwgUrl.URL;
-    var PassThrough$1 = Stream2.PassThrough;
-    var isDomainOrSubdomain = function isDomainOrSubdomain2(destination, original) {
-      const orig = new URL$1(original).hostname;
-      const dest = new URL$1(destination).hostname;
-      return orig === dest || orig[orig.length - dest.length - 1] === "." && orig.endsWith(dest);
-    };
-    var isSameProtocol = function isSameProtocol2(destination, original) {
-      const orig = new URL$1(original).protocol;
-      const dest = new URL$1(destination).protocol;
-      return orig === dest;
-    };
-    function fetch(url, opts) {
-      if (!fetch.Promise) {
-        throw new Error("native promise missing, set fetch.Promise to your favorite alternative");
-      }
-      Body.Promise = fetch.Promise;
-      return new fetch.Promise(function(resolve, reject) {
-        const request = new Request3(url, opts);
-        const options = getNodeRequestOptions(request);
-        const send = (options.protocol === "https:" ? https : http).request;
-        const signal = request.signal;
-        let response = null;
-        const abort = function abort2() {
-          let error = new AbortError("The user aborted a request.");
-          reject(error);
-          if (request.body && request.body instanceof Stream2.Readable) {
-            destroyStream(request.body, error);
-          }
-          if (!response || !response.body)
-            return;
-          response.body.emit("error", error);
-        };
-        if (signal && signal.aborted) {
-          abort();
-          return;
-        }
-        const abortAndFinalize = function abortAndFinalize2() {
-          abort();
-          finalize();
-        };
-        const req = send(options);
-        let reqTimeout;
-        if (signal) {
-          signal.addEventListener("abort", abortAndFinalize);
-        }
-        function finalize() {
-          req.abort();
-          if (signal)
-            signal.removeEventListener("abort", abortAndFinalize);
-          clearTimeout(reqTimeout);
-        }
-        if (request.timeout) {
-          req.once("socket", function(socket) {
-            reqTimeout = setTimeout(function() {
-              reject(new FetchError(`network timeout at: ${request.url}`, "request-timeout"));
-              finalize();
-            }, request.timeout);
-          });
-        }
-        req.on("error", function(err) {
-          reject(new FetchError(`request to ${request.url} failed, reason: ${err.message}`, "system", err));
-          if (response && response.body) {
-            destroyStream(response.body, err);
-          }
-          finalize();
-        });
-        fixResponseChunkedTransferBadEnding(req, function(err) {
-          if (signal && signal.aborted) {
-            return;
-          }
-          if (response && response.body) {
-            destroyStream(response.body, err);
-          }
-        });
-        if (parseInt(process.version.substring(1)) < 14) {
-          req.on("socket", function(s2) {
-            s2.addListener("close", function(hadError) {
-              const hasDataListener = s2.listenerCount("data") > 0;
-              if (response && hasDataListener && !hadError && !(signal && signal.aborted)) {
-                const err = new Error("Premature close");
-                err.code = "ERR_STREAM_PREMATURE_CLOSE";
-                response.body.emit("error", err);
-              }
-            });
-          });
-        }
-        req.on("response", function(res) {
-          clearTimeout(reqTimeout);
-          const headers = createHeadersLenient(res.headers);
-          if (fetch.isRedirect(res.statusCode)) {
-            const location = headers.get("Location");
-            let locationURL = null;
-            try {
-              locationURL = location === null ? null : new URL$1(location, request.url).toString();
-            } catch (err) {
-              if (request.redirect !== "manual") {
-                reject(new FetchError(`uri requested responds with an invalid redirect URL: ${location}`, "invalid-redirect"));
-                finalize();
-                return;
-              }
-            }
-            switch (request.redirect) {
-              case "error":
-                reject(new FetchError(`uri requested responds with a redirect, redirect mode is set to error: ${request.url}`, "no-redirect"));
-                finalize();
-                return;
-              case "manual":
-                if (locationURL !== null) {
-                  try {
-                    headers.set("Location", locationURL);
-                  } catch (err) {
-                    reject(err);
-                  }
-                }
-                break;
-              case "follow":
-                if (locationURL === null) {
-                  break;
-                }
-                if (request.counter >= request.follow) {
-                  reject(new FetchError(`maximum redirect reached at: ${request.url}`, "max-redirect"));
-                  finalize();
-                  return;
-                }
-                const requestOpts = {
-                  headers: new Headers2(request.headers),
-                  follow: request.follow,
-                  counter: request.counter + 1,
-                  agent: request.agent,
-                  compress: request.compress,
-                  method: request.method,
-                  body: request.body,
-                  signal: request.signal,
-                  timeout: request.timeout,
-                  size: request.size
-                };
-                if (!isDomainOrSubdomain(request.url, locationURL) || !isSameProtocol(request.url, locationURL)) {
-                  for (const name of ["authorization", "www-authenticate", "cookie", "cookie2"]) {
-                    requestOpts.headers.delete(name);
-                  }
-                }
-                if (res.statusCode !== 303 && request.body && getTotalBytes(request) === null) {
-                  reject(new FetchError("Cannot follow redirect with body being a readable stream", "unsupported-redirect"));
-                  finalize();
-                  return;
-                }
-                if (res.statusCode === 303 || (res.statusCode === 301 || res.statusCode === 302) && request.method === "POST") {
-                  requestOpts.method = "GET";
-                  requestOpts.body = void 0;
-                  requestOpts.headers.delete("content-length");
-                }
-                resolve(fetch(new Request3(locationURL, requestOpts)));
-                finalize();
-                return;
-            }
-          }
-          res.once("end", function() {
-            if (signal)
-              signal.removeEventListener("abort", abortAndFinalize);
-          });
-          let body = res.pipe(new PassThrough$1());
-          const response_options = {
-            url: request.url,
-            status: res.statusCode,
-            statusText: res.statusMessage,
-            headers,
-            size: request.size,
-            timeout: request.timeout,
-            counter: request.counter
-          };
-          const codings = headers.get("Content-Encoding");
-          if (!request.compress || request.method === "HEAD" || codings === null || res.statusCode === 204 || res.statusCode === 304) {
-            response = new Response2(body, response_options);
-            resolve(response);
-            return;
-          }
-          const zlibOptions = {
-            flush: zlib.Z_SYNC_FLUSH,
-            finishFlush: zlib.Z_SYNC_FLUSH
-          };
-          if (codings == "gzip" || codings == "x-gzip") {
-            body = body.pipe(zlib.createGunzip(zlibOptions));
-            response = new Response2(body, response_options);
-            resolve(response);
-            return;
-          }
-          if (codings == "deflate" || codings == "x-deflate") {
-            const raw = res.pipe(new PassThrough$1());
-            raw.once("data", function(chunk) {
-              if ((chunk[0] & 15) === 8) {
-                body = body.pipe(zlib.createInflate());
-              } else {
-                body = body.pipe(zlib.createInflateRaw());
-              }
-              response = new Response2(body, response_options);
-              resolve(response);
-            });
-            raw.on("end", function() {
-              if (!response) {
-                response = new Response2(body, response_options);
-                resolve(response);
-              }
-            });
-            return;
-          }
-          if (codings == "br" && typeof zlib.createBrotliDecompress === "function") {
-            body = body.pipe(zlib.createBrotliDecompress());
-            response = new Response2(body, response_options);
-            resolve(response);
-            return;
-          }
-          response = new Response2(body, response_options);
-          resolve(response);
-        });
-        writeToStream(req, request);
-      });
-    }
-    function fixResponseChunkedTransferBadEnding(request, errorCallback) {
-      let socket;
-      request.on("socket", function(s2) {
-        socket = s2;
-      });
-      request.on("response", function(response) {
-        const headers = response.headers;
-        if (headers["transfer-encoding"] === "chunked" && !headers["content-length"]) {
-          response.once("close", function(hadError) {
-            const hasDataListener = socket && socket.listenerCount("data") > 0;
-            if (hasDataListener && !hadError) {
-              const err = new Error("Premature close");
-              err.code = "ERR_STREAM_PREMATURE_CLOSE";
-              errorCallback(err);
-            }
-          });
-        }
-      });
-    }
-    function destroyStream(stream, err) {
-      if (stream.destroy) {
-        stream.destroy(err);
-      } else {
-        stream.emit("error", err);
-        stream.end();
-      }
-    }
-    fetch.isRedirect = function(code) {
-      return code === 301 || code === 302 || code === 303 || code === 307 || code === 308;
-    };
-    fetch.Promise = global.Promise;
-    module.exports = exports = fetch;
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.default = exports;
-    exports.Headers = Headers2;
-    exports.Request = Request3;
-    exports.Response = Response2;
-    exports.FetchError = FetchError;
-    exports.AbortError = AbortError;
   }
 });
 
@@ -8349,9 +7102,1239 @@ var getDefaultAgent = (url) => {
   return defaultHttpAgent;
 };
 
+// node_modules/node-fetch/lib/index.mjs
+var import_whatwg_url = __toESM(require_public_api(), 1);
+import Stream2 from "stream";
+import http from "http";
+import Url from "url";
+import https from "https";
+import zlib from "zlib";
+var Readable = Stream2.Readable;
+var BUFFER = Symbol("buffer");
+var TYPE = Symbol("type");
+var Blob = class _Blob {
+  constructor() {
+    this[TYPE] = "";
+    const blobParts = arguments[0];
+    const options = arguments[1];
+    const buffers = [];
+    let size = 0;
+    if (blobParts) {
+      const a2 = blobParts;
+      const length = Number(a2.length);
+      for (let i2 = 0; i2 < length; i2++) {
+        const element = a2[i2];
+        let buffer;
+        if (element instanceof Buffer) {
+          buffer = element;
+        } else if (ArrayBuffer.isView(element)) {
+          buffer = Buffer.from(element.buffer, element.byteOffset, element.byteLength);
+        } else if (element instanceof ArrayBuffer) {
+          buffer = Buffer.from(element);
+        } else if (element instanceof _Blob) {
+          buffer = element[BUFFER];
+        } else {
+          buffer = Buffer.from(typeof element === "string" ? element : String(element));
+        }
+        size += buffer.length;
+        buffers.push(buffer);
+      }
+    }
+    this[BUFFER] = Buffer.concat(buffers);
+    let type = options && options.type !== void 0 && String(options.type).toLowerCase();
+    if (type && !/[^\u0020-\u007E]/.test(type)) {
+      this[TYPE] = type;
+    }
+  }
+  get size() {
+    return this[BUFFER].length;
+  }
+  get type() {
+    return this[TYPE];
+  }
+  text() {
+    return Promise.resolve(this[BUFFER].toString());
+  }
+  arrayBuffer() {
+    const buf = this[BUFFER];
+    const ab = buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
+    return Promise.resolve(ab);
+  }
+  stream() {
+    const readable = new Readable();
+    readable._read = function() {
+    };
+    readable.push(this[BUFFER]);
+    readable.push(null);
+    return readable;
+  }
+  toString() {
+    return "[object Blob]";
+  }
+  slice() {
+    const size = this.size;
+    const start = arguments[0];
+    const end = arguments[1];
+    let relativeStart, relativeEnd;
+    if (start === void 0) {
+      relativeStart = 0;
+    } else if (start < 0) {
+      relativeStart = Math.max(size + start, 0);
+    } else {
+      relativeStart = Math.min(start, size);
+    }
+    if (end === void 0) {
+      relativeEnd = size;
+    } else if (end < 0) {
+      relativeEnd = Math.max(size + end, 0);
+    } else {
+      relativeEnd = Math.min(end, size);
+    }
+    const span = Math.max(relativeEnd - relativeStart, 0);
+    const buffer = this[BUFFER];
+    const slicedBuffer = buffer.slice(relativeStart, relativeStart + span);
+    const blob = new _Blob([], { type: arguments[2] });
+    blob[BUFFER] = slicedBuffer;
+    return blob;
+  }
+};
+Object.defineProperties(Blob.prototype, {
+  size: { enumerable: true },
+  type: { enumerable: true },
+  slice: { enumerable: true }
+});
+Object.defineProperty(Blob.prototype, Symbol.toStringTag, {
+  value: "Blob",
+  writable: false,
+  enumerable: false,
+  configurable: true
+});
+function FetchError(message, type, systemError) {
+  Error.call(this, message);
+  this.message = message;
+  this.type = type;
+  if (systemError) {
+    this.code = this.errno = systemError.code;
+  }
+  Error.captureStackTrace(this, this.constructor);
+}
+FetchError.prototype = Object.create(Error.prototype);
+FetchError.prototype.constructor = FetchError;
+FetchError.prototype.name = "FetchError";
+var convert;
+try {
+  convert = require_encoding().convert;
+} catch (e2) {
+}
+var INTERNALS = Symbol("Body internals");
+var PassThrough = Stream2.PassThrough;
+function Body(body) {
+  var _this = this;
+  var _ref = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {}, _ref$size = _ref.size;
+  let size = _ref$size === void 0 ? 0 : _ref$size;
+  var _ref$timeout = _ref.timeout;
+  let timeout = _ref$timeout === void 0 ? 0 : _ref$timeout;
+  if (body == null) {
+    body = null;
+  } else if (isURLSearchParams(body)) {
+    body = Buffer.from(body.toString());
+  } else if (isBlob(body))
+    ;
+  else if (Buffer.isBuffer(body))
+    ;
+  else if (Object.prototype.toString.call(body) === "[object ArrayBuffer]") {
+    body = Buffer.from(body);
+  } else if (ArrayBuffer.isView(body)) {
+    body = Buffer.from(body.buffer, body.byteOffset, body.byteLength);
+  } else if (body instanceof Stream2)
+    ;
+  else {
+    body = Buffer.from(String(body));
+  }
+  this[INTERNALS] = {
+    body,
+    disturbed: false,
+    error: null
+  };
+  this.size = size;
+  this.timeout = timeout;
+  if (body instanceof Stream2) {
+    body.on("error", function(err) {
+      const error = err.name === "AbortError" ? err : new FetchError(`Invalid response body while trying to fetch ${_this.url}: ${err.message}`, "system", err);
+      _this[INTERNALS].error = error;
+    });
+  }
+}
+Body.prototype = {
+  get body() {
+    return this[INTERNALS].body;
+  },
+  get bodyUsed() {
+    return this[INTERNALS].disturbed;
+  },
+  /**
+   * Decode response as ArrayBuffer
+   *
+   * @return  Promise
+   */
+  arrayBuffer() {
+    return consumeBody.call(this).then(function(buf) {
+      return buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
+    });
+  },
+  /**
+   * Return raw response as Blob
+   *
+   * @return Promise
+   */
+  blob() {
+    let ct2 = this.headers && this.headers.get("content-type") || "";
+    return consumeBody.call(this).then(function(buf) {
+      return Object.assign(
+        // Prevent copying
+        new Blob([], {
+          type: ct2.toLowerCase()
+        }),
+        {
+          [BUFFER]: buf
+        }
+      );
+    });
+  },
+  /**
+   * Decode response as json
+   *
+   * @return  Promise
+   */
+  json() {
+    var _this2 = this;
+    return consumeBody.call(this).then(function(buffer) {
+      try {
+        return JSON.parse(buffer.toString());
+      } catch (err) {
+        return Body.Promise.reject(new FetchError(`invalid json response body at ${_this2.url} reason: ${err.message}`, "invalid-json"));
+      }
+    });
+  },
+  /**
+   * Decode response as text
+   *
+   * @return  Promise
+   */
+  text() {
+    return consumeBody.call(this).then(function(buffer) {
+      return buffer.toString();
+    });
+  },
+  /**
+   * Decode response as buffer (non-spec api)
+   *
+   * @return  Promise
+   */
+  buffer() {
+    return consumeBody.call(this);
+  },
+  /**
+   * Decode response as text, while automatically detecting the encoding and
+   * trying to decode to UTF-8 (non-spec api)
+   *
+   * @return  Promise
+   */
+  textConverted() {
+    var _this3 = this;
+    return consumeBody.call(this).then(function(buffer) {
+      return convertBody(buffer, _this3.headers);
+    });
+  }
+};
+Object.defineProperties(Body.prototype, {
+  body: { enumerable: true },
+  bodyUsed: { enumerable: true },
+  arrayBuffer: { enumerable: true },
+  blob: { enumerable: true },
+  json: { enumerable: true },
+  text: { enumerable: true }
+});
+Body.mixIn = function(proto) {
+  for (const name of Object.getOwnPropertyNames(Body.prototype)) {
+    if (!(name in proto)) {
+      const desc = Object.getOwnPropertyDescriptor(Body.prototype, name);
+      Object.defineProperty(proto, name, desc);
+    }
+  }
+};
+function consumeBody() {
+  var _this4 = this;
+  if (this[INTERNALS].disturbed) {
+    return Body.Promise.reject(new TypeError(`body used already for: ${this.url}`));
+  }
+  this[INTERNALS].disturbed = true;
+  if (this[INTERNALS].error) {
+    return Body.Promise.reject(this[INTERNALS].error);
+  }
+  let body = this.body;
+  if (body === null) {
+    return Body.Promise.resolve(Buffer.alloc(0));
+  }
+  if (isBlob(body)) {
+    body = body.stream();
+  }
+  if (Buffer.isBuffer(body)) {
+    return Body.Promise.resolve(body);
+  }
+  if (!(body instanceof Stream2)) {
+    return Body.Promise.resolve(Buffer.alloc(0));
+  }
+  let accum = [];
+  let accumBytes = 0;
+  let abort = false;
+  return new Body.Promise(function(resolve, reject) {
+    let resTimeout;
+    if (_this4.timeout) {
+      resTimeout = setTimeout(function() {
+        abort = true;
+        reject(new FetchError(`Response timeout while trying to fetch ${_this4.url} (over ${_this4.timeout}ms)`, "body-timeout"));
+      }, _this4.timeout);
+    }
+    body.on("error", function(err) {
+      if (err.name === "AbortError") {
+        abort = true;
+        reject(err);
+      } else {
+        reject(new FetchError(`Invalid response body while trying to fetch ${_this4.url}: ${err.message}`, "system", err));
+      }
+    });
+    body.on("data", function(chunk) {
+      if (abort || chunk === null) {
+        return;
+      }
+      if (_this4.size && accumBytes + chunk.length > _this4.size) {
+        abort = true;
+        reject(new FetchError(`content size at ${_this4.url} over limit: ${_this4.size}`, "max-size"));
+        return;
+      }
+      accumBytes += chunk.length;
+      accum.push(chunk);
+    });
+    body.on("end", function() {
+      if (abort) {
+        return;
+      }
+      clearTimeout(resTimeout);
+      try {
+        resolve(Buffer.concat(accum, accumBytes));
+      } catch (err) {
+        reject(new FetchError(`Could not create Buffer from response body for ${_this4.url}: ${err.message}`, "system", err));
+      }
+    });
+  });
+}
+function convertBody(buffer, headers) {
+  if (typeof convert !== "function") {
+    throw new Error("The package `encoding` must be installed to use the textConverted() function");
+  }
+  const ct2 = headers.get("content-type");
+  let charset = "utf-8";
+  let res, str;
+  if (ct2) {
+    res = /charset=([^;]*)/i.exec(ct2);
+  }
+  str = buffer.slice(0, 1024).toString();
+  if (!res && str) {
+    res = /<meta.+?charset=(['"])(.+?)\1/i.exec(str);
+  }
+  if (!res && str) {
+    res = /<meta[\s]+?http-equiv=(['"])content-type\1[\s]+?content=(['"])(.+?)\2/i.exec(str);
+    if (!res) {
+      res = /<meta[\s]+?content=(['"])(.+?)\1[\s]+?http-equiv=(['"])content-type\3/i.exec(str);
+      if (res) {
+        res.pop();
+      }
+    }
+    if (res) {
+      res = /charset=(.*)/i.exec(res.pop());
+    }
+  }
+  if (!res && str) {
+    res = /<\?xml.+?encoding=(['"])(.+?)\1/i.exec(str);
+  }
+  if (res) {
+    charset = res.pop();
+    if (charset === "gb2312" || charset === "gbk") {
+      charset = "gb18030";
+    }
+  }
+  return convert(buffer, "UTF-8", charset).toString();
+}
+function isURLSearchParams(obj) {
+  if (typeof obj !== "object" || typeof obj.append !== "function" || typeof obj.delete !== "function" || typeof obj.get !== "function" || typeof obj.getAll !== "function" || typeof obj.has !== "function" || typeof obj.set !== "function") {
+    return false;
+  }
+  return obj.constructor.name === "URLSearchParams" || Object.prototype.toString.call(obj) === "[object URLSearchParams]" || typeof obj.sort === "function";
+}
+function isBlob(obj) {
+  return typeof obj === "object" && typeof obj.arrayBuffer === "function" && typeof obj.type === "string" && typeof obj.stream === "function" && typeof obj.constructor === "function" && typeof obj.constructor.name === "string" && /^(Blob|File)$/.test(obj.constructor.name) && /^(Blob|File)$/.test(obj[Symbol.toStringTag]);
+}
+function clone(instance) {
+  let p1, p2;
+  let body = instance.body;
+  if (instance.bodyUsed) {
+    throw new Error("cannot clone body after it is used");
+  }
+  if (body instanceof Stream2 && typeof body.getBoundary !== "function") {
+    p1 = new PassThrough();
+    p2 = new PassThrough();
+    body.pipe(p1);
+    body.pipe(p2);
+    instance[INTERNALS].body = p1;
+    body = p2;
+  }
+  return body;
+}
+function extractContentType(body) {
+  if (body === null) {
+    return null;
+  } else if (typeof body === "string") {
+    return "text/plain;charset=UTF-8";
+  } else if (isURLSearchParams(body)) {
+    return "application/x-www-form-urlencoded;charset=UTF-8";
+  } else if (isBlob(body)) {
+    return body.type || null;
+  } else if (Buffer.isBuffer(body)) {
+    return null;
+  } else if (Object.prototype.toString.call(body) === "[object ArrayBuffer]") {
+    return null;
+  } else if (ArrayBuffer.isView(body)) {
+    return null;
+  } else if (typeof body.getBoundary === "function") {
+    return `multipart/form-data;boundary=${body.getBoundary()}`;
+  } else if (body instanceof Stream2) {
+    return null;
+  } else {
+    return "text/plain;charset=UTF-8";
+  }
+}
+function getTotalBytes(instance) {
+  const body = instance.body;
+  if (body === null) {
+    return 0;
+  } else if (isBlob(body)) {
+    return body.size;
+  } else if (Buffer.isBuffer(body)) {
+    return body.length;
+  } else if (body && typeof body.getLengthSync === "function") {
+    if (body._lengthRetrievers && body._lengthRetrievers.length == 0 || // 1.x
+    body.hasKnownLength && body.hasKnownLength()) {
+      return body.getLengthSync();
+    }
+    return null;
+  } else {
+    return null;
+  }
+}
+function writeToStream(dest, instance) {
+  const body = instance.body;
+  if (body === null) {
+    dest.end();
+  } else if (isBlob(body)) {
+    body.stream().pipe(dest);
+  } else if (Buffer.isBuffer(body)) {
+    dest.write(body);
+    dest.end();
+  } else {
+    body.pipe(dest);
+  }
+}
+Body.Promise = global.Promise;
+var invalidTokenRegex = /[^\^_`a-zA-Z\-0-9!#$%&'*+.|~]/;
+var invalidHeaderCharRegex = /[^\t\x20-\x7e\x80-\xff]/;
+function validateName(name) {
+  name = `${name}`;
+  if (invalidTokenRegex.test(name) || name === "") {
+    throw new TypeError(`${name} is not a legal HTTP header name`);
+  }
+}
+function validateValue(value) {
+  value = `${value}`;
+  if (invalidHeaderCharRegex.test(value)) {
+    throw new TypeError(`${value} is not a legal HTTP header value`);
+  }
+}
+function find(map, name) {
+  name = name.toLowerCase();
+  for (const key in map) {
+    if (key.toLowerCase() === name) {
+      return key;
+    }
+  }
+  return void 0;
+}
+var MAP = Symbol("map");
+var Headers = class _Headers {
+  /**
+   * Headers class
+   *
+   * @param   Object  headers  Response headers
+   * @return  Void
+   */
+  constructor() {
+    let init = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : void 0;
+    this[MAP] = /* @__PURE__ */ Object.create(null);
+    if (init instanceof _Headers) {
+      const rawHeaders = init.raw();
+      const headerNames = Object.keys(rawHeaders);
+      for (const headerName of headerNames) {
+        for (const value of rawHeaders[headerName]) {
+          this.append(headerName, value);
+        }
+      }
+      return;
+    }
+    if (init == null)
+      ;
+    else if (typeof init === "object") {
+      const method = init[Symbol.iterator];
+      if (method != null) {
+        if (typeof method !== "function") {
+          throw new TypeError("Header pairs must be iterable");
+        }
+        const pairs = [];
+        for (const pair of init) {
+          if (typeof pair !== "object" || typeof pair[Symbol.iterator] !== "function") {
+            throw new TypeError("Each header pair must be iterable");
+          }
+          pairs.push(Array.from(pair));
+        }
+        for (const pair of pairs) {
+          if (pair.length !== 2) {
+            throw new TypeError("Each header pair must be a name/value tuple");
+          }
+          this.append(pair[0], pair[1]);
+        }
+      } else {
+        for (const key of Object.keys(init)) {
+          const value = init[key];
+          this.append(key, value);
+        }
+      }
+    } else {
+      throw new TypeError("Provided initializer must be an object");
+    }
+  }
+  /**
+   * Return combined header value given name
+   *
+   * @param   String  name  Header name
+   * @return  Mixed
+   */
+  get(name) {
+    name = `${name}`;
+    validateName(name);
+    const key = find(this[MAP], name);
+    if (key === void 0) {
+      return null;
+    }
+    return this[MAP][key].join(", ");
+  }
+  /**
+   * Iterate over all headers
+   *
+   * @param   Function  callback  Executed for each item with parameters (value, name, thisArg)
+   * @param   Boolean   thisArg   `this` context for callback function
+   * @return  Void
+   */
+  forEach(callback) {
+    let thisArg = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : void 0;
+    let pairs = getHeaders(this);
+    let i2 = 0;
+    while (i2 < pairs.length) {
+      var _pairs$i = pairs[i2];
+      const name = _pairs$i[0], value = _pairs$i[1];
+      callback.call(thisArg, value, name, this);
+      pairs = getHeaders(this);
+      i2++;
+    }
+  }
+  /**
+   * Overwrite header values given name
+   *
+   * @param   String  name   Header name
+   * @param   String  value  Header value
+   * @return  Void
+   */
+  set(name, value) {
+    name = `${name}`;
+    value = `${value}`;
+    validateName(name);
+    validateValue(value);
+    const key = find(this[MAP], name);
+    this[MAP][key !== void 0 ? key : name] = [value];
+  }
+  /**
+   * Append a value onto existing header
+   *
+   * @param   String  name   Header name
+   * @param   String  value  Header value
+   * @return  Void
+   */
+  append(name, value) {
+    name = `${name}`;
+    value = `${value}`;
+    validateName(name);
+    validateValue(value);
+    const key = find(this[MAP], name);
+    if (key !== void 0) {
+      this[MAP][key].push(value);
+    } else {
+      this[MAP][name] = [value];
+    }
+  }
+  /**
+   * Check for header name existence
+   *
+   * @param   String   name  Header name
+   * @return  Boolean
+   */
+  has(name) {
+    name = `${name}`;
+    validateName(name);
+    return find(this[MAP], name) !== void 0;
+  }
+  /**
+   * Delete all header values given name
+   *
+   * @param   String  name  Header name
+   * @return  Void
+   */
+  delete(name) {
+    name = `${name}`;
+    validateName(name);
+    const key = find(this[MAP], name);
+    if (key !== void 0) {
+      delete this[MAP][key];
+    }
+  }
+  /**
+   * Return raw headers (non-spec api)
+   *
+   * @return  Object
+   */
+  raw() {
+    return this[MAP];
+  }
+  /**
+   * Get an iterator on keys.
+   *
+   * @return  Iterator
+   */
+  keys() {
+    return createHeadersIterator(this, "key");
+  }
+  /**
+   * Get an iterator on values.
+   *
+   * @return  Iterator
+   */
+  values() {
+    return createHeadersIterator(this, "value");
+  }
+  /**
+   * Get an iterator on entries.
+   *
+   * This is the default iterator of the Headers object.
+   *
+   * @return  Iterator
+   */
+  [Symbol.iterator]() {
+    return createHeadersIterator(this, "key+value");
+  }
+};
+Headers.prototype.entries = Headers.prototype[Symbol.iterator];
+Object.defineProperty(Headers.prototype, Symbol.toStringTag, {
+  value: "Headers",
+  writable: false,
+  enumerable: false,
+  configurable: true
+});
+Object.defineProperties(Headers.prototype, {
+  get: { enumerable: true },
+  forEach: { enumerable: true },
+  set: { enumerable: true },
+  append: { enumerable: true },
+  has: { enumerable: true },
+  delete: { enumerable: true },
+  keys: { enumerable: true },
+  values: { enumerable: true },
+  entries: { enumerable: true }
+});
+function getHeaders(headers) {
+  let kind = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "key+value";
+  const keys = Object.keys(headers[MAP]).sort();
+  return keys.map(kind === "key" ? function(k2) {
+    return k2.toLowerCase();
+  } : kind === "value" ? function(k2) {
+    return headers[MAP][k2].join(", ");
+  } : function(k2) {
+    return [k2.toLowerCase(), headers[MAP][k2].join(", ")];
+  });
+}
+var INTERNAL = Symbol("internal");
+function createHeadersIterator(target, kind) {
+  const iterator = Object.create(HeadersIteratorPrototype);
+  iterator[INTERNAL] = {
+    target,
+    kind,
+    index: 0
+  };
+  return iterator;
+}
+var HeadersIteratorPrototype = Object.setPrototypeOf({
+  next() {
+    if (!this || Object.getPrototypeOf(this) !== HeadersIteratorPrototype) {
+      throw new TypeError("Value of `this` is not a HeadersIterator");
+    }
+    var _INTERNAL = this[INTERNAL];
+    const target = _INTERNAL.target, kind = _INTERNAL.kind, index = _INTERNAL.index;
+    const values = getHeaders(target, kind);
+    const len = values.length;
+    if (index >= len) {
+      return {
+        value: void 0,
+        done: true
+      };
+    }
+    this[INTERNAL].index = index + 1;
+    return {
+      value: values[index],
+      done: false
+    };
+  }
+}, Object.getPrototypeOf(Object.getPrototypeOf([][Symbol.iterator]())));
+Object.defineProperty(HeadersIteratorPrototype, Symbol.toStringTag, {
+  value: "HeadersIterator",
+  writable: false,
+  enumerable: false,
+  configurable: true
+});
+function exportNodeCompatibleHeaders(headers) {
+  const obj = Object.assign({ __proto__: null }, headers[MAP]);
+  const hostHeaderKey = find(headers[MAP], "Host");
+  if (hostHeaderKey !== void 0) {
+    obj[hostHeaderKey] = obj[hostHeaderKey][0];
+  }
+  return obj;
+}
+function createHeadersLenient(obj) {
+  const headers = new Headers();
+  for (const name of Object.keys(obj)) {
+    if (invalidTokenRegex.test(name)) {
+      continue;
+    }
+    if (Array.isArray(obj[name])) {
+      for (const val of obj[name]) {
+        if (invalidHeaderCharRegex.test(val)) {
+          continue;
+        }
+        if (headers[MAP][name] === void 0) {
+          headers[MAP][name] = [val];
+        } else {
+          headers[MAP][name].push(val);
+        }
+      }
+    } else if (!invalidHeaderCharRegex.test(obj[name])) {
+      headers[MAP][name] = [obj[name]];
+    }
+  }
+  return headers;
+}
+var INTERNALS$1 = Symbol("Response internals");
+var STATUS_CODES = http.STATUS_CODES;
+var Response = class _Response {
+  constructor() {
+    let body = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : null;
+    let opts = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+    Body.call(this, body, opts);
+    const status = opts.status || 200;
+    const headers = new Headers(opts.headers);
+    if (body != null && !headers.has("Content-Type")) {
+      const contentType = extractContentType(body);
+      if (contentType) {
+        headers.append("Content-Type", contentType);
+      }
+    }
+    this[INTERNALS$1] = {
+      url: opts.url,
+      status,
+      statusText: opts.statusText || STATUS_CODES[status],
+      headers,
+      counter: opts.counter
+    };
+  }
+  get url() {
+    return this[INTERNALS$1].url || "";
+  }
+  get status() {
+    return this[INTERNALS$1].status;
+  }
+  /**
+   * Convenience property representing if the request ended normally
+   */
+  get ok() {
+    return this[INTERNALS$1].status >= 200 && this[INTERNALS$1].status < 300;
+  }
+  get redirected() {
+    return this[INTERNALS$1].counter > 0;
+  }
+  get statusText() {
+    return this[INTERNALS$1].statusText;
+  }
+  get headers() {
+    return this[INTERNALS$1].headers;
+  }
+  /**
+   * Clone this response
+   *
+   * @return  Response
+   */
+  clone() {
+    return new _Response(clone(this), {
+      url: this.url,
+      status: this.status,
+      statusText: this.statusText,
+      headers: this.headers,
+      ok: this.ok,
+      redirected: this.redirected
+    });
+  }
+};
+Body.mixIn(Response.prototype);
+Object.defineProperties(Response.prototype, {
+  url: { enumerable: true },
+  status: { enumerable: true },
+  ok: { enumerable: true },
+  redirected: { enumerable: true },
+  statusText: { enumerable: true },
+  headers: { enumerable: true },
+  clone: { enumerable: true }
+});
+Object.defineProperty(Response.prototype, Symbol.toStringTag, {
+  value: "Response",
+  writable: false,
+  enumerable: false,
+  configurable: true
+});
+var INTERNALS$2 = Symbol("Request internals");
+var URL2 = Url.URL || import_whatwg_url.default.URL;
+var parse_url = Url.parse;
+var format_url = Url.format;
+function parseURL(urlStr) {
+  if (/^[a-zA-Z][a-zA-Z\d+\-.]*:/.exec(urlStr)) {
+    urlStr = new URL2(urlStr).toString();
+  }
+  return parse_url(urlStr);
+}
+var streamDestructionSupported = "destroy" in Stream2.Readable.prototype;
+function isRequest(input) {
+  return typeof input === "object" && typeof input[INTERNALS$2] === "object";
+}
+function isAbortSignal(signal) {
+  const proto = signal && typeof signal === "object" && Object.getPrototypeOf(signal);
+  return !!(proto && proto.constructor.name === "AbortSignal");
+}
+var Request2 = class _Request {
+  constructor(input) {
+    let init = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+    let parsedURL;
+    if (!isRequest(input)) {
+      if (input && input.href) {
+        parsedURL = parseURL(input.href);
+      } else {
+        parsedURL = parseURL(`${input}`);
+      }
+      input = {};
+    } else {
+      parsedURL = parseURL(input.url);
+    }
+    let method = init.method || input.method || "GET";
+    method = method.toUpperCase();
+    if ((init.body != null || isRequest(input) && input.body !== null) && (method === "GET" || method === "HEAD")) {
+      throw new TypeError("Request with GET/HEAD method cannot have body");
+    }
+    let inputBody = init.body != null ? init.body : isRequest(input) && input.body !== null ? clone(input) : null;
+    Body.call(this, inputBody, {
+      timeout: init.timeout || input.timeout || 0,
+      size: init.size || input.size || 0
+    });
+    const headers = new Headers(init.headers || input.headers || {});
+    if (inputBody != null && !headers.has("Content-Type")) {
+      const contentType = extractContentType(inputBody);
+      if (contentType) {
+        headers.append("Content-Type", contentType);
+      }
+    }
+    let signal = isRequest(input) ? input.signal : null;
+    if ("signal" in init)
+      signal = init.signal;
+    if (signal != null && !isAbortSignal(signal)) {
+      throw new TypeError("Expected signal to be an instanceof AbortSignal");
+    }
+    this[INTERNALS$2] = {
+      method,
+      redirect: init.redirect || input.redirect || "follow",
+      headers,
+      parsedURL,
+      signal
+    };
+    this.follow = init.follow !== void 0 ? init.follow : input.follow !== void 0 ? input.follow : 20;
+    this.compress = init.compress !== void 0 ? init.compress : input.compress !== void 0 ? input.compress : true;
+    this.counter = init.counter || input.counter || 0;
+    this.agent = init.agent || input.agent;
+  }
+  get method() {
+    return this[INTERNALS$2].method;
+  }
+  get url() {
+    return format_url(this[INTERNALS$2].parsedURL);
+  }
+  get headers() {
+    return this[INTERNALS$2].headers;
+  }
+  get redirect() {
+    return this[INTERNALS$2].redirect;
+  }
+  get signal() {
+    return this[INTERNALS$2].signal;
+  }
+  /**
+   * Clone this request
+   *
+   * @return  Request
+   */
+  clone() {
+    return new _Request(this);
+  }
+};
+Body.mixIn(Request2.prototype);
+Object.defineProperty(Request2.prototype, Symbol.toStringTag, {
+  value: "Request",
+  writable: false,
+  enumerable: false,
+  configurable: true
+});
+Object.defineProperties(Request2.prototype, {
+  method: { enumerable: true },
+  url: { enumerable: true },
+  headers: { enumerable: true },
+  redirect: { enumerable: true },
+  clone: { enumerable: true },
+  signal: { enumerable: true }
+});
+function getNodeRequestOptions(request) {
+  const parsedURL = request[INTERNALS$2].parsedURL;
+  const headers = new Headers(request[INTERNALS$2].headers);
+  if (!headers.has("Accept")) {
+    headers.set("Accept", "*/*");
+  }
+  if (!parsedURL.protocol || !parsedURL.hostname) {
+    throw new TypeError("Only absolute URLs are supported");
+  }
+  if (!/^https?:$/.test(parsedURL.protocol)) {
+    throw new TypeError("Only HTTP(S) protocols are supported");
+  }
+  if (request.signal && request.body instanceof Stream2.Readable && !streamDestructionSupported) {
+    throw new Error("Cancellation of streamed requests with AbortSignal is not supported in node < 8");
+  }
+  let contentLengthValue = null;
+  if (request.body == null && /^(POST|PUT)$/i.test(request.method)) {
+    contentLengthValue = "0";
+  }
+  if (request.body != null) {
+    const totalBytes = getTotalBytes(request);
+    if (typeof totalBytes === "number") {
+      contentLengthValue = String(totalBytes);
+    }
+  }
+  if (contentLengthValue) {
+    headers.set("Content-Length", contentLengthValue);
+  }
+  if (!headers.has("User-Agent")) {
+    headers.set("User-Agent", "node-fetch/1.0 (+https://github.com/bitinn/node-fetch)");
+  }
+  if (request.compress && !headers.has("Accept-Encoding")) {
+    headers.set("Accept-Encoding", "gzip,deflate");
+  }
+  let agent = request.agent;
+  if (typeof agent === "function") {
+    agent = agent(parsedURL);
+  }
+  return Object.assign({}, parsedURL, {
+    method: request.method,
+    headers: exportNodeCompatibleHeaders(headers),
+    agent
+  });
+}
+function AbortError(message) {
+  Error.call(this, message);
+  this.type = "aborted";
+  this.message = message;
+  Error.captureStackTrace(this, this.constructor);
+}
+AbortError.prototype = Object.create(Error.prototype);
+AbortError.prototype.constructor = AbortError;
+AbortError.prototype.name = "AbortError";
+var URL$1 = Url.URL || import_whatwg_url.default.URL;
+var PassThrough$1 = Stream2.PassThrough;
+var isDomainOrSubdomain = function isDomainOrSubdomain2(destination, original) {
+  const orig = new URL$1(original).hostname;
+  const dest = new URL$1(destination).hostname;
+  return orig === dest || orig[orig.length - dest.length - 1] === "." && orig.endsWith(dest);
+};
+var isSameProtocol = function isSameProtocol2(destination, original) {
+  const orig = new URL$1(original).protocol;
+  const dest = new URL$1(destination).protocol;
+  return orig === dest;
+};
+function fetch(url, opts) {
+  if (!fetch.Promise) {
+    throw new Error("native promise missing, set fetch.Promise to your favorite alternative");
+  }
+  Body.Promise = fetch.Promise;
+  return new fetch.Promise(function(resolve, reject) {
+    const request = new Request2(url, opts);
+    const options = getNodeRequestOptions(request);
+    const send = (options.protocol === "https:" ? https : http).request;
+    const signal = request.signal;
+    let response = null;
+    const abort = function abort2() {
+      let error = new AbortError("The user aborted a request.");
+      reject(error);
+      if (request.body && request.body instanceof Stream2.Readable) {
+        destroyStream(request.body, error);
+      }
+      if (!response || !response.body)
+        return;
+      response.body.emit("error", error);
+    };
+    if (signal && signal.aborted) {
+      abort();
+      return;
+    }
+    const abortAndFinalize = function abortAndFinalize2() {
+      abort();
+      finalize();
+    };
+    const req = send(options);
+    let reqTimeout;
+    if (signal) {
+      signal.addEventListener("abort", abortAndFinalize);
+    }
+    function finalize() {
+      req.abort();
+      if (signal)
+        signal.removeEventListener("abort", abortAndFinalize);
+      clearTimeout(reqTimeout);
+    }
+    if (request.timeout) {
+      req.once("socket", function(socket) {
+        reqTimeout = setTimeout(function() {
+          reject(new FetchError(`network timeout at: ${request.url}`, "request-timeout"));
+          finalize();
+        }, request.timeout);
+      });
+    }
+    req.on("error", function(err) {
+      reject(new FetchError(`request to ${request.url} failed, reason: ${err.message}`, "system", err));
+      if (response && response.body) {
+        destroyStream(response.body, err);
+      }
+      finalize();
+    });
+    fixResponseChunkedTransferBadEnding(req, function(err) {
+      if (signal && signal.aborted) {
+        return;
+      }
+      if (response && response.body) {
+        destroyStream(response.body, err);
+      }
+    });
+    if (parseInt(process.version.substring(1)) < 14) {
+      req.on("socket", function(s2) {
+        s2.addListener("close", function(hadError) {
+          const hasDataListener = s2.listenerCount("data") > 0;
+          if (response && hasDataListener && !hadError && !(signal && signal.aborted)) {
+            const err = new Error("Premature close");
+            err.code = "ERR_STREAM_PREMATURE_CLOSE";
+            response.body.emit("error", err);
+          }
+        });
+      });
+    }
+    req.on("response", function(res) {
+      clearTimeout(reqTimeout);
+      const headers = createHeadersLenient(res.headers);
+      if (fetch.isRedirect(res.statusCode)) {
+        const location = headers.get("Location");
+        let locationURL = null;
+        try {
+          locationURL = location === null ? null : new URL$1(location, request.url).toString();
+        } catch (err) {
+          if (request.redirect !== "manual") {
+            reject(new FetchError(`uri requested responds with an invalid redirect URL: ${location}`, "invalid-redirect"));
+            finalize();
+            return;
+          }
+        }
+        switch (request.redirect) {
+          case "error":
+            reject(new FetchError(`uri requested responds with a redirect, redirect mode is set to error: ${request.url}`, "no-redirect"));
+            finalize();
+            return;
+          case "manual":
+            if (locationURL !== null) {
+              try {
+                headers.set("Location", locationURL);
+              } catch (err) {
+                reject(err);
+              }
+            }
+            break;
+          case "follow":
+            if (locationURL === null) {
+              break;
+            }
+            if (request.counter >= request.follow) {
+              reject(new FetchError(`maximum redirect reached at: ${request.url}`, "max-redirect"));
+              finalize();
+              return;
+            }
+            const requestOpts = {
+              headers: new Headers(request.headers),
+              follow: request.follow,
+              counter: request.counter + 1,
+              agent: request.agent,
+              compress: request.compress,
+              method: request.method,
+              body: request.body,
+              signal: request.signal,
+              timeout: request.timeout,
+              size: request.size
+            };
+            if (!isDomainOrSubdomain(request.url, locationURL) || !isSameProtocol(request.url, locationURL)) {
+              for (const name of ["authorization", "www-authenticate", "cookie", "cookie2"]) {
+                requestOpts.headers.delete(name);
+              }
+            }
+            if (res.statusCode !== 303 && request.body && getTotalBytes(request) === null) {
+              reject(new FetchError("Cannot follow redirect with body being a readable stream", "unsupported-redirect"));
+              finalize();
+              return;
+            }
+            if (res.statusCode === 303 || (res.statusCode === 301 || res.statusCode === 302) && request.method === "POST") {
+              requestOpts.method = "GET";
+              requestOpts.body = void 0;
+              requestOpts.headers.delete("content-length");
+            }
+            resolve(fetch(new Request2(locationURL, requestOpts)));
+            finalize();
+            return;
+        }
+      }
+      res.once("end", function() {
+        if (signal)
+          signal.removeEventListener("abort", abortAndFinalize);
+      });
+      let body = res.pipe(new PassThrough$1());
+      const response_options = {
+        url: request.url,
+        status: res.statusCode,
+        statusText: res.statusMessage,
+        headers,
+        size: request.size,
+        timeout: request.timeout,
+        counter: request.counter
+      };
+      const codings = headers.get("Content-Encoding");
+      if (!request.compress || request.method === "HEAD" || codings === null || res.statusCode === 204 || res.statusCode === 304) {
+        response = new Response(body, response_options);
+        resolve(response);
+        return;
+      }
+      const zlibOptions = {
+        flush: zlib.Z_SYNC_FLUSH,
+        finishFlush: zlib.Z_SYNC_FLUSH
+      };
+      if (codings == "gzip" || codings == "x-gzip") {
+        body = body.pipe(zlib.createGunzip(zlibOptions));
+        response = new Response(body, response_options);
+        resolve(response);
+        return;
+      }
+      if (codings == "deflate" || codings == "x-deflate") {
+        const raw = res.pipe(new PassThrough$1());
+        raw.once("data", function(chunk) {
+          if ((chunk[0] & 15) === 8) {
+            body = body.pipe(zlib.createInflate());
+          } else {
+            body = body.pipe(zlib.createInflateRaw());
+          }
+          response = new Response(body, response_options);
+          resolve(response);
+        });
+        raw.on("end", function() {
+          if (!response) {
+            response = new Response(body, response_options);
+            resolve(response);
+          }
+        });
+        return;
+      }
+      if (codings == "br" && typeof zlib.createBrotliDecompress === "function") {
+        body = body.pipe(zlib.createBrotliDecompress());
+        response = new Response(body, response_options);
+        resolve(response);
+        return;
+      }
+      response = new Response(body, response_options);
+      resolve(response);
+    });
+    writeToStream(req, request);
+  });
+}
+function fixResponseChunkedTransferBadEnding(request, errorCallback) {
+  let socket;
+  request.on("socket", function(s2) {
+    socket = s2;
+  });
+  request.on("response", function(response) {
+    const headers = response.headers;
+    if (headers["transfer-encoding"] === "chunked" && !headers["content-length"]) {
+      response.once("close", function(hadError) {
+        const hasDataListener = socket && socket.listenerCount("data") > 0;
+        if (hasDataListener && !hadError) {
+          const err = new Error("Premature close");
+          err.code = "ERR_STREAM_PREMATURE_CLOSE";
+          errorCallback(err);
+        }
+      });
+    }
+  });
+}
+function destroyStream(stream, err) {
+  if (stream.destroy) {
+    stream.destroy(err);
+  } else {
+    stream.emit("error", err);
+    stream.end();
+  }
+}
+fetch.isRedirect = function(code) {
+  return code === 301 || code === 302 || code === 303 || code === 307 || code === 308;
+};
+fetch.Promise = global.Promise;
+var lib_default = fetch;
+
 // node_modules/openai/_shims/fetch-node.mjs
-var nf = __toESM(require_lib3(), 1);
-var _fetch = nf.default;
+var _fetch = lib_default;
 var isPolyfilled = true;
 
 // node_modules/formdata-node/lib/esm/FormData.js
@@ -10373,10 +10356,10 @@ async function* consumeNodeBlob(blob) {
     yield new Uint8Array(buffer);
   }
 }
-async function* consumeBlobParts(parts, clone = false) {
+async function* consumeBlobParts(parts, clone2 = false) {
   for (const part of parts) {
     if (ArrayBuffer.isView(part)) {
-      if (clone) {
+      if (clone2) {
         yield* clonePart(part);
       } else {
         yield part;
@@ -10438,7 +10421,7 @@ var __classPrivateFieldSet = function(receiver, state, value, kind, f2) {
 var _Blob_parts;
 var _Blob_type;
 var _Blob_size;
-var Blob = class _Blob {
+var Blob2 = class _Blob {
   constructor(blobParts = [], options = {}) {
     _Blob_parts.set(this, []);
     _Blob_type.set(this, "");
@@ -10522,7 +10505,7 @@ var Blob = class _Blob {
     return "Blob";
   }
 };
-Object.defineProperties(Blob.prototype, {
+Object.defineProperties(Blob2.prototype, {
   type: { enumerable: true },
   size: { enumerable: true },
   slice: { enumerable: true },
@@ -10550,7 +10533,7 @@ var __classPrivateFieldGet2 = function(receiver, state, kind, f2) {
 };
 var _File_name;
 var _File_lastModified;
-var File = class extends Blob {
+var File = class extends Blob2 {
   constructor(fileBits, name, options = {}) {
     super(fileBits, options);
     _File_name.set(this, void 0);
@@ -10565,7 +10548,7 @@ var File = class extends Blob {
     }
   }
   static [(_File_name = /* @__PURE__ */ new WeakMap(), _File_lastModified = /* @__PURE__ */ new WeakMap(), Symbol.hasInstance)](value) {
-    return value instanceof Blob && value[Symbol.toStringTag] === "File" && typeof value.name === "string";
+    return value instanceof Blob2 && value[Symbol.toStringTag] === "File" && typeof value.name === "string";
   }
   get name() {
     return __classPrivateFieldGet2(this, _File_name, "f");
@@ -10585,7 +10568,7 @@ var File = class extends Blob {
 var isFile = (value) => value instanceof File;
 
 // node_modules/formdata-node/lib/esm/isBlob.js
-var isBlob = (value) => value instanceof Blob;
+var isBlob2 = (value) => value instanceof Blob2;
 
 // node_modules/formdata-node/lib/esm/deprecateConstructorEntries.js
 import { deprecate } from "util";
@@ -10683,7 +10666,7 @@ var FormData = class {
         type: rawValue.type,
         lastModified: rawValue.lastModified
       });
-    } else if (isBlob(rawValue)) {
+    } else if (isBlob2(rawValue)) {
       value = new File([rawValue], fileName === void 0 ? "blob" : fileName, {
         type: rawValue.type
       });
@@ -10717,7 +10700,7 @@ var FormData = class {
 };
 
 // node_modules/openai/_shims/getMultipartRequestOptions-node.mjs
-import { Readable } from "stream";
+import { Readable as Readable2 } from "stream";
 
 // node_modules/form-data-encoder/lib/esm/util/createBoundary.js
 var alphabet = "abcdefghijklmnopqrstuvwxyz0123456789";
@@ -10898,7 +10881,7 @@ var FormDataEncoder = class {
 // node_modules/openai/_shims/getMultipartRequestOptions-node.mjs
 async function getMultipartRequestOptions(form, opts) {
   const encoder = new FormDataEncoder(form);
-  const readable = Readable.from(encoder);
+  const readable = Readable2.from(encoder);
   const body = new MultipartBody(readable);
   const headers = {
     ...opts.headers,

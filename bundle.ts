@@ -2,6 +2,7 @@ import * as esbuild from "esbuild";
 
 const options = {
   entryPoints: ["src/index.ts"],
+  mainFields: ["module", "main"],
   bundle: true,
   platform: "node",
   target: "es2020",
