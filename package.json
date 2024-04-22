@@ -1,22 +1,19 @@
 {
   "name": "imvectordb",
-  "version": "0.0.6",
-  "description": "A super simple in-memory VectorDB",
-  "author": "Jin Kim <golbin@gmail.com>",
-  "license": "MIT",
-  "homepage": "https://github.com/golbin/imvectordb",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "exclude": [
-    "node_modules",
+  "packageManager": "yarn@3.5.0",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist/bundle.js",
+  "files": [
     "dist"
   ],
-  "include": [
-    "src"
-  ],
   "scripts": {
-    "build": "tsc",
-    "test": "mocha -r ts-node/esm  --extension ts 'test/**/*.spec.ts'"
+    "build": "tsc -b && tsx bundle.ts",
+    "dev": "run-p watch:tsc watch:esbuild:sync",
+    "watch:tsc": "tsc -b -w --preserveWatchOutput",
+    "watch:esbuild": "tsx bundle.ts --watch",
+    "watch:esbuild:sync": "tsx bundle.ts --watch --sync",
+    "publish": "yarn npm publish --access public"
   },
   "dependencies": {
     "openai": "^4.5.0"
@@ -26,8 +23,13 @@
     "@types/mocha": "^10.0.1",
     "@types/node": "^20.4.1",
     "chai": "^4.3.7",
-    "mocha": "^10.2.0",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.1.6"
+    "esbuild": "^0.19.2",
+    "npm-run-all": "^4.1.5",
+    "recursive-copy": "^2.0.14",
+    "tsx": "^3.12.10",
+    "typescript": "^5.2.2"
+  },
+  "volta": {
+    "node": "20.6.1"
   }
 }
